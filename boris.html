@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        <h1>KALKULATOR</h1>
+    </title>
+ 
+    <style>
+        body {
+            text-align:center;
+        }
+        table {
+            margin: 0 auto;
+            width:400px;
+            height:400px;
+        }
+        input {
+            width:100%;
+            height:100%;
+            font-size:42px;
+        }
+        input[type="button"]:active { 
+            background-color: #04456F; 
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <br>
+        KALKULATOR
+    </h1>
+ 
+    <table border="1"> 
+        <tr> 
+            <td colspan="4"><input type="text" 
+                                id="result"/></td> 
+        </tr> 
+        
+        <tr> 
+ 
+            <!-- Create button and display its value -->
+            <td><input type="button" value="7" 
+                                onclick="Display('7')"/> </td> 
+            
+            <td><input type="button" value="8" 
+                                onclick="Display('8')"/> </td> 
+            
+            <td><input type="button" value="9" 
+                                onclick="Display('9')"/> </td> 
+            
+            <td><input type="button" value="C" 
+                                onclick="clr()"/> </td>
+        </tr> 
+                
+        <tr> 
+            <td><input type="button" value="4" 
+                                onclick="Display('4')"/> </td> 
+            
+            <td><input type="button" value="5" 
+                                onclick="Display('5')"/> </td> 
+            
+            <td><input type="button" value="6" 
+                                onclick="Display('6')"/> </td> 
+            
+            <td><input type="button" value="&#10060;" 
+                                style='font-size:17px;' 
+                                onclick="cancel()"/> </td> 
+        </tr> 
+        
+        <tr> 
+            <td><input type="button" value="1" 
+                                onclick="Display('1')"/> </td> 
+            
+            <td><input type="button" value="2" 
+                                onclick="Display('2')"/> </td> 
+            
+            <td><input type="button" value="3"
+                                onclick="Display('3')"/> </td> 
+            
+            <td><input type="button" value="/"
+                                onclick="Display('/')"/> </td> 
+        </tr> 
+                
+        <tr> 
+            <td><input type="button" value="."
+                                onclick="Display('.')"/> </td> 
+            
+            <td><input type="button" value="0"
+                                onclick="Display('0')"/> </td> 
+            
+            <td><input type="button" value="%"
+                                onclick="Display('%')"/> </td> 
+            
+            <td><input type="button" value="*"
+                                onclick="Display('*')"/> </td> 
+        </tr> 
+ 
+        <tr> 
+            <td><input type="button" value="+"
+                                onclick="Display('+')"/> </td>
+            
+            <td><input type="button" value="-" 
+                                onclick="Display('-')"/> </td>  
+            
+            <td colspan="2"><input type="button" 
+                            value="=" onclick="solve()"/> </td>  
+        </tr>
+    </table> 
+ 
+    <script> 
+        
+        // Function to Display the value of button
+        function Display(value) { 
+            document.getElementById("result").value += value;
+        } 
+              
+        // Function to evaluates the expression
+        // and return its result 
+        function solve() { 
+            var val1 = document.getElementById("result").value;
+            var val2 = eval(val1);
+            document.getElementById("result").value = val2; 
+        } 
+              
+        // Function to clear the textarea
+        function clr() { 
+            document.getElementById("result").value = "" 
+        } 
+ 
+        // Function to remove last character
+        function cancel() { 
+            var value = document.getElementById("result").value;
+            
+            document.getElementById("result").value
+                     = value.substr(0, value.length - 1);
+        } 
+    </script> 
+</body>
+</html>
